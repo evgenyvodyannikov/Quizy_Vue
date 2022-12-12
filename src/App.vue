@@ -1,29 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Game from './components/Game/index.vue';
+import { ref } from "vue";
+
+
+var url = new URL('https://quizapi.io/api/v1/questions');
+var params = [['apiKey', 'F2vPTpqtEbEd9489JM5TeVayeUohhXF5hbnXw2iS'], ['limit', '9']]; // , ['category', 'Linux']
+
+url.search = new URLSearchParams(params).toString();
+
+fetch(url)
+  .then(res => res.json())
+  .then((data) => {
+    console.log(data);
+    questions.value = data;
+    console.log(questions);
+    isFetched.value = true;
+  })
+  .catch("Ошибка получения данных с сервера.\nПерезагрузите страницу.");
+
+const questions = ref([]);
+let isFetched = ref(false);
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <Game :questions=questions />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
