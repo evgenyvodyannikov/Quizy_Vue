@@ -1,5 +1,7 @@
 <template>
-  <Game/>
+  <Game 
+    v-bind:question="questions[0]"
+  />
 </template>
 
 <script>
@@ -8,7 +10,7 @@ export default {
   name: 'app',
   data() {
     return {
-      posts: [],
+      questions: [],
     }
   },
   created() {
@@ -28,8 +30,8 @@ export default {
       fetch(url)
       .then(response => response.json())
       .then(data => {
-        this.posts = data;
-        console.log(this.posts);
+        this.questions = data;
+        console.log(this.questions);
       });
     }
   },

@@ -1,11 +1,26 @@
 <template>
   <div>
-     <h1>FFFF</h1>
+    <div class="Game">
+      <h1>{{ question?.question }}</h1>
+      <ul>
+        <li v-for="(item, index) in removeEmpty(question?.answers)" v-if="item != ''" :key="index">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+
   </div>
 </template>
 
-<script setup>
-
+<script>
+export default {
+  props: ['question'],
+  methods: {
+    removeEmpty(obj) {
+      return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
+    }
+  }
+}
 </script>
 
 <style scoped>
