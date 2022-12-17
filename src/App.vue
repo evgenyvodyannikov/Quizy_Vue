@@ -1,6 +1,7 @@
 <template>
   <Game 
     v-bind:question="questions[0]"
+    @onClickVariant="onClickVariant"
   />
 </template>
 
@@ -33,6 +34,9 @@ export default {
         this.questions = data;
         console.log(this.questions);
       });
+    },
+    onClickVariant(event) {
+      console.log(event);
     }
   },
 }

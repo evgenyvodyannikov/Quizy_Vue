@@ -3,7 +3,12 @@
     <div class="Game">
       <h1>{{ question?.question }}</h1>
       <ul>
-        <li v-for="(item, index) in removeEmpty(question?.answers)" v-if="item != ''" :key="index">
+        <li 
+        v-for="(item, index) in removeEmpty(question?.answers)" 
+        v-if="item != ''" 
+        :key="index"
+        @click="$emit('onClickVariant', item)"
+        >
           {{ item }}
         </li>
       </ul>
@@ -18,7 +23,7 @@ export default {
   methods: {
     removeEmpty(obj) {
       return Object.fromEntries(Object.entries(obj).filter(([_, v]) => v != null));
-    }
+    },
   }
 }
 </script>
