@@ -1,6 +1,6 @@
 <template>
   <Game 
-    v-bind:question="questions[0]"
+    v-bind:question="questions[this.current]"
     @onClickVariant="onClickVariant"
   />
 </template>
@@ -12,6 +12,7 @@ export default {
   data() {
     return {
       questions: [],
+      current: 0
     }
   },
   created() {
@@ -35,8 +36,10 @@ export default {
         console.log(this.questions);
       });
     },
-    onClickVariant(event) {
+    onClickVariant(event, index) {
       console.log(event);
+      console.log(index)
+      this.current += 1;
     }
   },
 }

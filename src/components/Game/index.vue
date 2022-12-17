@@ -5,9 +5,8 @@
       <ul>
         <li 
         v-for="(item, index) in removeEmpty(question?.answers)" 
-        v-if="item != ''" 
         :key="index"
-        @click="$emit('onClickVariant', item)"
+        @click="$emit('onClickVariant', item, index)"
         >
           {{ item }}
         </li>
