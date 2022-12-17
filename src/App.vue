@@ -12,7 +12,8 @@ export default {
   data() {
     return {
       questions: [],
-      current: 0
+      current: 0,
+      result: 0
     }
   },
   created() {
@@ -36,11 +37,25 @@ export default {
         console.log(this.questions);
       });
     },
+
     onClickVariant(event, index) {
+
       console.log(event);
-      console.log(index)
-      this.current += 1;
-    }
+      console.log(index);
+
+      if(this.current < this.questions.length){
+        let curQuestion = this.questions[this.current];
+        console.log(curQuestion);
+
+        // isCorrect?
+
+        this.current += 1;
+      }
+      else{
+        // end game
+      }
+      
+    },
   },
 }
  
