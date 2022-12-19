@@ -2,6 +2,7 @@
   <Game 
     v-bind:question="questions[this.current]"
     @onClickVariant="onClickVariant"
+    v-if="isGameActive"
   />
 </template>
 
@@ -13,7 +14,8 @@ export default {
     return {
       questions: [],
       current: 0,
-      result: 0
+      score: 0,
+      isGameActive: true,
     }
   },
   created() {
@@ -40,21 +42,21 @@ export default {
 
     onClickVariant(event, index) {
 
-      console.log(event);
-      console.log(index);
-
       if(this.current < this.questions.length){
         let curQuestion = this.questions[this.current];
+       
         console.log(curQuestion);
+        console.log(index);
 
-        // isCorrect?
-
+        if (curQuestion.correct_answers[`${index}_correct`]) this.score++;
         this.current += 1;
+
+        console.log(curQuestion.correct_answers[`${index}_correct`]);
+        console.log(this.score);
       }
       else{
-        // end game
+        this.isGameActive = false;
       }
-      
     },
   },
 }
