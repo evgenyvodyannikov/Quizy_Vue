@@ -2,9 +2,9 @@
     <div>
         <div class="result">
             <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" />
-            <h2>Ваш результат {{correct}} из {{length}}</h2>
+            <h2>Ваш результат {{score}} из {{length}}</h2>
             <a href="/">
-                <button>Попробовать снова</button>
+                <button class="button">Попробовать снова</button>
             </a>
         </div>
     </div>
