@@ -1,7 +1,7 @@
 <template>
   <div>
-    
-    <div class="Game">
+
+    <div>
       <h1>{{ question?.question }}</h1>
       <ul>
         <li 

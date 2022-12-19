@@ -1,21 +1,27 @@
 <template>
+
   <Game 
     v-bind:question="questions[this.current]"
     @onClickVariant="onClickVariant"
     v-if="isGameActive"
   />
+
   <Result
   v-bind:score="score"
   v-bind:length="questions.length"
   v-if="!isGameActive"
   />
+
 </template>
 
 <script>
+
 import Game from './components/Game/index.vue';
 import Result from './components/Result/index.vue';
+
 export default {
   name: 'app',
+
   data() {
     return {
       questions: [],
@@ -24,12 +30,16 @@ export default {
       isGameActive: true,
     }
   },
+
   created() {
     this.fetchData();
   },
+
   components: {
-    Game
+    Game,
+    Result
   },
+  
   methods: {
     fetchData() {
 

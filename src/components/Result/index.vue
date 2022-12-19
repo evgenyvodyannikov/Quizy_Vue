@@ -14,6 +14,7 @@
 export default {
     props: ['score', 'length'],
 }
+
 </script>
   
 <style scoped>
