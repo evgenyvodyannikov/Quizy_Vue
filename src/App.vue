@@ -1,16 +1,20 @@
 <template>
+  <div class="App">
 
-  <Game 
-    v-bind:question="questions[this.current]"
-    @onClickVariant="onClickVariant"
-    v-if="isGameActive"
-  />
+    <Game 
+      v-bind:question="questions[this.current]"
+      @onClickVariant="onClickVariant"
+      v-if="isGameActive"
+    />
 
-  <Result
-  v-bind:score="score"
-  v-bind:length="questions.length"
-  v-if="!isGameActive"
-  />
+    <Result
+      v-bind:score="score"
+      v-bind:length="questions.length"
+      v-if="!isGameActive"
+    />
+
+  </div>
+  
 
 </template>
 
@@ -74,5 +78,5 @@ export default {
 </script>
 
 <style scoped>
-
+@import "./style.scss";
 </style>
