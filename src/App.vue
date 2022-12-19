@@ -40,19 +40,13 @@ export default {
       });
     },
 
-    onClickVariant(event, index) {
+    onClickVariant(_, index) {
+
+      this.current += 1;
 
       if(this.current < this.questions.length){
         let curQuestion = this.questions[this.current];
-       
-        console.log(curQuestion);
-        console.log(index);
-
         if (curQuestion.correct_answers[`${index}_correct`] === 'true') this.score++;
-        this.current += 1;
-
-        console.log(curQuestion.correct_answers[`${index}_correct`]);
-        console.log(this.score);
       }
       else{
         this.isGameActive = false;
