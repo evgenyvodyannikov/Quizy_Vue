@@ -1,5 +1,6 @@
 <template>
   <div>
+    
     <div class="Game">
       <h1>{{ question?.question }}</h1>
       <ul>
