@@ -28,7 +28,7 @@ export default {
     fetchData() {
 
       const url = new URL('https://quizapi.io/api/v1/questions');
-      const params = [['apiKey', 'F2vPTpqtEbEd9489JM5TeVayeUohhXF5hbnXw2iS'], ['limit', '9']]; // , ['category', 'Linux']
+      const params = [['apiKey', 'F2vPTpqtEbEd9489JM5TeVayeUohhXF5hbnXw2iS'], ['limit', '10']]; // , ['category', 'Linux']
       
       url.search = new URLSearchParams(params).toString();
 
@@ -48,7 +48,7 @@ export default {
         console.log(curQuestion);
         console.log(index);
 
-        if (curQuestion.correct_answers[`${index}_correct`]) this.score++;
+        if (curQuestion.correct_answers[`${index}_correct`] === 'true') this.score++;
         this.current += 1;
 
         console.log(curQuestion.correct_answers[`${index}_correct`]);
