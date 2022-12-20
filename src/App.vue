@@ -3,6 +3,8 @@
 
     <Game 
       v-bind:question="questions[this.current]"
+      v-bind:step="this.current"
+      v-bind:length="this.questions.length"
       @onClickVariant="onClickVariant"
       v-if="isGameActive"
     />
